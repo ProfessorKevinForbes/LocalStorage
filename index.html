@@ -37,6 +37,22 @@
 	document.getElementById("output").innerHTML = value;
     }
 
+    function clearAllKeys() {
+        window.localStorage.clear();
+    }
+
+	
+    function storeSessionValue() {
+	var value = document.getElementById("inputBox2").value;
+	window.sessionStorage.setItem("storedKey2", value);
+    }
+
+    function showSessionStoredValue() {
+        var value = window.sessionStorage.getItem("storedKey2");
+	document.getElementById("output").innerHTML = value;
+    }
+
+
     </script>
   </head>
   <body>
@@ -50,7 +66,15 @@
 	<form>
 		Value to Store: <input type="text" id="inputBox">
 	</form>
-        <button onclick="storeValue();">Clear Key</button>
+        <button onclick="storeValue();">Store Data</button>
         <button onclick="showStoredValue();">Show Stored Data</button>
+	<br>
+	<button onclick="clearAllKeys();">Clear All Keys</button>
+	<br>
+	<form>
+		Value to Store: <input type="text" id="inputBox2">
+	</form>
+        <button onclick="storeSessionValue();">Store Session Data</button>
+        <button onclick="showSessionStoredValue();">Show Session Stored Data</button>
   </body>
 </html>
