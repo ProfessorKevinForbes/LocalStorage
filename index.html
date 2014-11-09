@@ -18,7 +18,7 @@
 
     }
 
-    function showStoredValue() {
+    function showKey() {
         var value = window.localStorage.getItem("key");
 	document.getElementById("output").innerHTML = value;
     }
@@ -27,14 +27,30 @@
         window.localStorage.removeItem("key");
     }
 
+    function storeValue() {
+	var value = document.getElementById("inputBox").value;
+	window.localStorage.setItem("storedKey", value);
+    }
+
+    function showStoredValue() {
+        var value = window.localStorage.getItem("storedKey");
+	document.getElementById("output").innerHTML = value;
+    }
+
     </script>
   </head>
   <body>
     <h1>Example</h1>
     <p id="output">localStorage</p>
 
-        <button onclick="showStoredValue();">Show Stored Data</button>
+        <button onclick="showKey();">Show Key</button>
+	<br>
         <button onclick="clearKey();">Clear Key</button>
-
+	<br>
+	<form>
+		Value to Store: <input type="text" name="inputBox">
+	</form>
+        <button onclick="storeValue();">Clear Key</button>
+        <button onclick="showStoredValue();">Show Stored Data</button>
   </body>
 </html>
